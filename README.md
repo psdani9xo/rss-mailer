@@ -27,8 +27,9 @@ services:
       - SECRET_KEY=rss_mailer_super_secret_key_2025
     volumes:
       - ./data:/data
-
+```
 ## Arrancar
 
 ```bash
 docker compose up -d --build
+```
