@@ -9,6 +9,9 @@ App web (Flask) en Docker para monitorizar un feed RSS/Torznab y enviar emails c
 - Logs
 - Datos persistentes en volumen (`./data`)
 
+
+http://IP_DEL_SERVIDOR:1235
+
 ## Docker Compose (recomendado)
 
 ```yaml
@@ -24,3 +27,8 @@ services:
       - SECRET_KEY=rss_mailer_super_secret_key_2025
     volumes:
       - ./data:/data
+
+## Arrancar
+
+```bash
+docker compose up -d --build
