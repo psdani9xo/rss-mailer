@@ -1,9 +1,26 @@
-# RSS Mailer
+# rss-mailer
 
-Web app en Flask + Docker que monitoriza un feed RSS/Torznab
-y envia emails cuando hay coincidencias por palabras clave.
+App web (Flask) en Docker para monitorizar un feed RSS/Torznab y enviar emails cuando hay coincidencias por keywords.
 
-## Uso rapido
+## Features
+- Panel web
+- Configuracion de FEED_URL, keywords, intervalo, SMTP
+- Historial de coincidencias
+- Logs
+- Datos persistentes en volumen (`./data`)
 
-```bash
-docker compose up -d --build
+## Docker Compose (recomendado)
+
+```yaml
+services:
+  rss-mailer:
+    image: psdani9xo/rss-mailer:latest
+    container_name: rss-mailer
+    restart: unless-stopped
+    ports:
+      - "1235:1235"
+    environment:
+      - DATA_DIR=/data
+      - SECRET_KEY=rss_mailer_super_secret_key_2025
+    volumes:
+      - ./data:/data
