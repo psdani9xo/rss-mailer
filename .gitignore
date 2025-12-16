@@ -1,0 +1,18 @@
+# Datos persistentes
+data/
+*.db
+*.sqlite
+log.txt
+
+# Entornos
+.env
+
+# Python
+__pycache__/
+*.pyc
+
+# Docker
+*.log
+
+# Sistema
+.DS_Store

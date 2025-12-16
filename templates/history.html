@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>History</h2>
+
+<table>
+  <tr>
+    <th>Fecha</th>
+    <th>Keyword</th>
+    <th>Titulo</th>
+    <th>Link</th>
+  </tr>
+  {% for ts, title, link, kw in rows %}
+  <tr>
+    <td>{{ ts }}</td>
+    <td>{{ kw }}</td>
+    <td>{{ title }}</td>
+    <td>{% if link %}<a href="{{ link }}" target="_blank">abrir</a>{% endif %}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

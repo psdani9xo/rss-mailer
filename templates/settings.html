@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Settings</h2>
+
+<form method="post">
+  <div class="box">
+    <label><b>Enable watcher</b></label>
+    <div><input type="checkbox" name="enabled" {% if settings.enabled %}checked{% endif %}></div>
+  </div>
+
+  <div class="box">
+    <label><b>FEED_URL</b></label>
+    <input type="text" name="feed_url" value="{{ settings.feed_url }}">
+  </div>
+
+  <div class="box">
+    <label><b>KEYWORDS (una por linea)</b></label>
+    <textarea name="keywords">{{ settings.keywords }}</textarea>
+  </div>
+
+  <div class="box">
+    <label><b>CHECK_INTERVAL (segundos)</b></label>
+    <input type="number" name="check_interval" value="{{ settings.check_interval }}">
+  </div>
+
+  <div class="box">
+    <div class="row">
+      <div>
+        <label><b>EMAIL_FROM</b></label>
+        <input type="text" name="email_from" value="{{ settings.email_from }}">
+      </div>
+      <div>
+        <label><b>EMAIL_TO</b></label>
+        <input type="text" name="email_to" value="{{ settings.email_to }}">
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="row">
+      <div>
+        <label><b>SMTP_SERVER</b></label>
+        <input type="text" name="smtp_server" value="{{ settings.smtp_server }}">
+      </div>
+      <div>
+        <label><b>SMTP_PORT</b></label>
+        <input type="number" name="smtp_port" value="{{ settings.smtp_port }}">
+      </div>
+    </div>
+    <div class="row" style="margin-top:12px;">
+      <div>
+        <label><b>SMTP_USERNAME</b></label>
+        <input type="text" name="smtp_username" value="{{ settings.smtp_username }}">
+      </div>
+      <div>
+        <label><b>SMTP_PASSWORD</b></label>
+        <input type="password" name="smtp_password" value="{{ settings.smtp_password }}">
+      </div>
+    </div>
+  </div>
+
+  <button class="btn" type="submit">Guardar</button>
+</form>
+{% endblock %}

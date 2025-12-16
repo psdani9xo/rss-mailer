@@ -1,0 +1,13 @@
+services:
+  rss-web:
+    build: .
+    container_name: rss-mailer
+    restart: unless-stopped
+    ports:
+      - "1235:1235"
+    environment:
+      - DATA_DIR=/data
+      - SECRET_KEY=rss_web_flask_super_secret_key_2025
+    volumes:
+      - ./data:/data
+    user: "0:0"

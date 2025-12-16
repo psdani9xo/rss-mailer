@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Dashboard</h2>
+
+<div class="box">
+  <div><b>Running:</b> {{ "SI" if state.running else "NO" }}</div>
+  <div><b>Last checked:</b> {{ state.last_checked }}</div>
+  <div><b>Last hit:</b> {{ state.last_hit }}</div>
+</div>
+
+<div class="box">
+  <form method="post" action="/start" style="display:inline;">
+    <button class="btn" type="submit">Start</button>
+  </form>
+  <form method="post" action="/stop" style="display:inline;">
+    <button class="btn btn-danger" type="submit">Stop</button>
+  </form>
+</div>
+
+<div class="box">
+  <div><b>Feed:</b> {{ settings.feed_url }}</div>
+  <div><b>Interval:</b> {{ settings.check_interval }} s</div>
+  <div><b>Enabled:</b> {{ "SI" if settings.enabled else "NO" }}</div>
+</div>
+{% endblock %}
